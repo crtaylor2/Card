@@ -9,3 +9,10 @@ Card* Deck::contains(const Card& card)
     else
         return nullptr;
 }
+
+void Deck::remove(const Card& card)
+{
+    std::vector<Card>::iterator iter = std::find(begin(), end(), card);
+    if(iter != end())
+        erase(iter);
+}

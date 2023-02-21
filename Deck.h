@@ -8,6 +8,9 @@ class Deck : public std::vector<Card>
 {
     public:
         Card* contains(const Card& card);
+        void remove(const Card& card);
 };
+
+using Hand = Deck;
 
 #endif
