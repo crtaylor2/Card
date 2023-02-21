@@ -1,0 +1,10 @@
+CMakeFiles/
+CTestTestfile.cmake
+Makefile
+cmake_install.cmake
+libCard.a
+tests/CMakeFiles/
+tests/CTestTestfile.cmake
+tests/CardTest
+tests/Makefile
+tests/cmake_install.cmake
