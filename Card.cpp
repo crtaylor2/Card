@@ -152,3 +152,8 @@ bool Card::operator!=(const Card& other) const
 {
     return suit != other.suit || value != other.value;
 }
+
+bool Card::isValid() const
+{
+    return value >= ACE && value <= KING;
+}

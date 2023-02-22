@@ -13,6 +13,9 @@ class Deck : public std::vector<Card>
         void searchForRuns();
         void searchForSets();
 
+        void sortByRuns();
+        void sortBySets();
+
         void createDeck();
         void shuffle();
 };

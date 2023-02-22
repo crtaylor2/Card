@@ -14,6 +14,7 @@ public:
     };
 
     enum Value {
+        INVALID_LOW,
         ACE,
         TWO,
         THREE,
@@ -26,7 +27,8 @@ public:
         TEN,
         JACK,
         QUEEN,
-        KING
+        KING,
+        INVALID_HIGH
     };
 
     enum MeldStatus
@@ -46,6 +48,7 @@ public:
     int TwoFromMeld;
 
     bool isMeld() const;
+    bool isValid() const;
 
     std::string CardToString() const;
     int CardPoints() const;
