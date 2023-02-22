@@ -14,7 +14,8 @@ public:
     };
 
     enum Value {
-        INVALID_LOW,
+        INVALID_LOW1,
+        INVALID_LOW2,
         ACE,
         TWO,
         THREE,
@@ -28,7 +29,8 @@ public:
         JACK,
         QUEEN,
         KING,
-        INVALID_HIGH
+        INVALID_HIGH1,
+        INVALID_HIGH2
     };
 
     enum MeldStatus
