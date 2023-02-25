@@ -18,6 +18,8 @@ class Deck : public std::vector<Card>
 
         void createDeck();
         void shuffle();
+
+        void deal(Deck &hand, int count);
 };
 
 using Hand = Deck;

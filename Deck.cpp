@@ -122,3 +122,17 @@ void Deck::sortByRuns()
 {
     std::sort(begin(), end(), Card::CompareForRuns);
 }
+
+//////////////////////////////////////////////////////////////////////
+/// Deals the card deck
+///
+/// Returns: void
+//////////////////////////////////////////////////////////////////////
+void Deck::deal(Deck &hand, int count)
+{
+    for(int d = 0; d < count; ++d)
+    {
+        hand.push_back(back());
+        pop_back();
+    }
+}
