@@ -53,6 +53,9 @@ public:
     bool isValid() const;
 
     std::string CardToString() const;
+    std::string SuitString() const;
+    std::string ValueString() const;
+
     int CardPoints() const;
 
     static bool CompareForSets(Card Card1, Card Card2);

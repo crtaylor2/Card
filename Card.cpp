@@ -15,68 +15,7 @@ Card::Card(Suit s, Value v)
 
 std::string Card::CardToString() const
 {
-    std::string CardString;
-
-    switch(value)
-    {
-        case ACE:
-            CardString = "Ace";
-            break;
-        case TWO:
-            CardString = "Two";
-            break;
-        case THREE:
-            CardString = "Three";
-            break;
-        case FOUR:
-            CardString = "Four";
-            break;
-        case FIVE:
-            CardString = "Five";
-            break;
-        case SIX:
-            CardString = "Six";
-            break;
-        case SEVEN:
-            CardString = "Seven";
-            break;
-        case EIGHT:
-            CardString = "Eight";
-            break;
-        case NINE:
-            CardString = "Nine";
-            break;
-        case TEN:
-            CardString = "Ten";
-            break;
-        case JACK:
-            CardString = "Jack";
-            break;
-        case QUEEN:
-            CardString = "Queen";
-            break;
-        case KING:
-            CardString = "King";
-            break;
-    }
-
-    CardString += " of ";
-
-    switch(suit)
-    {
-        case DIAMOND:
-            CardString += "Diamonds";
-            break;
-        case CLUB:
-            CardString += "Clubs";
-            break;
-        case HEART:
-            CardString += "Hearts";
-            break;
-        case SPADE:
-            CardString += "Spades";
-            break;
-    }
+    std::string CardString = ValueString() + " of " + SuitString();
 
     if(isMeld())
     {
@@ -88,6 +27,58 @@ std::string Card::CardToString() const
     out << std::fixed << probOfMeld;
 
     return CardString + " (" + out.str() + ")";
+}
+
+std::string Card::ValueString() const
+{
+    switch(value)
+    {
+        case ACE:
+            return "Ace";
+        case TWO:
+            return "Two";
+        case THREE:
+            return "Three";
+        case FOUR:
+            return "Four";
+        case FIVE:
+            return "Five";
+        case SIX:
+            return "Six";
+        case SEVEN:
+            return "Seven";
+        case EIGHT:
+            return "Eight";
+        case NINE:
+            return "Nine";
+        case TEN:
+            return "Ten";
+        case JACK:
+            return "Jack";
+        case QUEEN:
+            return "Queen";
+        case KING:
+            return "King";
+        default:
+            return "INVALID";
+    }
+}
+
+std::string Card::SuitString() const
+{
+    switch(suit)
+    {
+        case DIAMOND:
+            return "Diamonds";
+        case CLUB:
+            return "Clubs";
+        case HEART:
+            return "Hearts";
+        case SPADE:
+            return "Spades";
+        default:
+            return "INVLAID";
+    }
 }
 
 bool Card::isMeld() const
