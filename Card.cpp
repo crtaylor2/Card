@@ -92,7 +92,7 @@ std::string Card::SuitString() const
         case SPADE:
             return "Spades";
         default:
-            return "INVLAID";
+            return "INVALID";
     }
 }
 
