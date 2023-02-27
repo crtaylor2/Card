@@ -13,6 +13,11 @@ Card::Card(Suit s, Value v)
     TwoFromMeld = 0;
 }
 
+//////////////////////////////////////////////////////////////////////
+/// Creates a std::string representation of the card
+///
+/// Returns: std::string (ex: 'Two of Clubs')
+//////////////////////////////////////////////////////////////////////
 std::string Card::CardToString() const
 {
     std::string CardString = ValueString() + " of " + SuitString();
@@ -29,6 +34,11 @@ std::string Card::CardToString() const
     return CardString + " (" + out.str() + ")";
 }
 
+//////////////////////////////////////////////////////////////////////
+/// Creates a std::string representation of the card's value (Ace, Two...)
+///
+/// Returns: std::string
+//////////////////////////////////////////////////////////////////////
 std::string Card::ValueString() const
 {
     switch(value)
@@ -64,6 +74,11 @@ std::string Card::ValueString() const
     }
 }
 
+//////////////////////////////////////////////////////////////////////
+/// Creates a std::string representation of the card's suit
+///
+/// Returns: std::string
+//////////////////////////////////////////////////////////////////////
 std::string Card::SuitString() const
 {
     switch(suit)
@@ -81,11 +96,22 @@ std::string Card::SuitString() const
     }
 }
 
+//////////////////////////////////////////////////////////////////////
+/// Checks if the card has been marked as melded
+///
+/// Returns: bool
+//////////////////////////////////////////////////////////////////////
 bool Card::isMeld() const
 {
     return meld == RUNMELD || meld == SETMELD;
 }
 
+//////////////////////////////////////////////////////////////////////
+/// Returns the number of points for the card, with the Ace being the
+/// lowest value and the King being the highest
+///
+/// Returns: int
+//////////////////////////////////////////////////////////////////////
 int Card::CardPoints() const
 {
     switch(value)
@@ -118,6 +144,11 @@ int Card::CardPoints() const
     return 0;
 }
 
+//////////////////////////////////////////////////////////////////////
+/// Comparison function useful for sorting cards for runs
+///
+/// Returns: bool
+//////////////////////////////////////////////////////////////////////
 bool Card::CompareForRuns(Card Card1, Card Card2)
 {
     if(Card1.suit != Card2.suit)
@@ -126,6 +157,11 @@ bool Card::CompareForRuns(Card Card1, Card Card2)
         return Card1.value < Card2.value;
 }
 
+//////////////////////////////////////////////////////////////////////
+/// Comparison function useful for sorting cards for sets
+///
+/// Returns: bool
+//////////////////////////////////////////////////////////////////////
 bool Card::CompareForSets(Card Card1, Card Card2)
 {
     if(Card1.value != Card2.value)
@@ -134,16 +170,31 @@ bool Card::CompareForSets(Card Card1, Card Card2)
         return Card1.suit < Card2.suit;
 }
 
+//////////////////////////////////////////////////////////////////////
+/// Checks for card equality based on the suit and value alone
+///
+/// Returns: bool
+//////////////////////////////////////////////////////////////////////
 bool Card::operator==(const Card& other) const
 {
     return suit == other.suit && value == other.value;
 }
 
+//////////////////////////////////////////////////////////////////////
+/// Checks for card inequality based on the suit and value alone
+///
+/// Returns: bool
+//////////////////////////////////////////////////////////////////////
 bool Card::operator!=(const Card& other) const
 {
     return suit != other.suit || value != other.value;
 }
 
+//////////////////////////////////////////////////////////////////////
+/// Checks if the card has a valid value
+///
+/// Returns: bool
+//////////////////////////////////////////////////////////////////////
 bool Card::isValid() const
 {
     return value >= ACE && value <= KING;
